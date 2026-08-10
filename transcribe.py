@@ -31,6 +31,10 @@ try:
 except ImportError:
     load_dotenv = None
 
+# Keep NLTK's downloaded data inside the project folder instead of ~/nltk_data.
+# Must be set before whisperx (and its dependencies) import nltk.
+os.environ.setdefault("NLTK_DATA", str(Path(__file__).resolve().parent / ".nltk_data"))
+
 try:
     import whisperx
 except ImportError:

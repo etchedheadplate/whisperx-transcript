@@ -157,6 +157,12 @@ re-transcribe every input file regardless of existing output.
 
 ## Notes
 
+- NLTK downloads some language data on first use (used internally by a
+  whisperX dependency). By default it would land in `~/nltk_data`; this
+  script redirects it to `.nltk_data/` inside the project folder instead, so
+  nothing is written to your home directory. Add `.nltk_data/` to
+  `.gitignore` alongside `.venv/` and `.env`.
+
 - On Apple Silicon without CUDA, processing runs on CPU. A one-hour recording
   with diarization can take roughly 15-40 minutes depending on the model
   size.
